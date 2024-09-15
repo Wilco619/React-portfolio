@@ -41,7 +41,7 @@ const HeroSection = () => {
     <Box
       sx={{
         bgcolor: 'background.paper',
-        pt: 8,
+        pt: 0,
         pb: 6,
       }}
     >
@@ -120,7 +120,7 @@ const HeroSection = () => {
                 
               }}
               alt="Developer"
-              src="/src/assets/2_b.jpeg"
+              src="/src/assets/passport-.png"
             />
           </Box>
         </Box>

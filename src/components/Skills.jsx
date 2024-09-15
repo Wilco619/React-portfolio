@@ -55,12 +55,12 @@ const skills = [
   },
   {
     title: 'Linux (Debian)',
-    icon: <TerminalIcon sx={{ fontSize: 50 }} />,
+    icon: <TerminalIcon color="disabled" sx={{ fontSize: 50 }} />,
     description: 'Proficient in Debian Linux for server management and development.',
   },
   {
     title: 'Material UI & Bootstrap 5',
-    icon: <LayersIcon sx={{ fontSize: 50 }} />,
+    icon: <LayersIcon color="info" sx={{ fontSize: 50 }} />,
     description: 'Experienced in Material UI and Bootstrap 5 for modern, responsive designs.',
   },
   {
@@ -88,14 +88,14 @@ const SkillsPage = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(45deg, #FF5722 30%, #FF9800 90%)',
+        background: 'linear-gradient(45deg, #343131 30%, #A04747 90%)',
         position: 'relative',
         overflow: 'hidden',
         p: 2,
       }}
     >
       <Container maxWidth="lg">
-        <Typography variant="h3" align="center" color="black" gutterBottom>
+        <Typography variant="h3" align="center" sx={{pb: 6, pt: 6}}  color="black" gutterBottom>
           My Coding Skills
         </Typography>
         <Grid container spacing={4} justifyContent="center">

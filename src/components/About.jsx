@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Container, Paper } from '@mui/material';
+import { Box, Typography, Container, Paper, Button } from '@mui/material';
 import { styled } from '@mui/system';
 
 const float = '@keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(180deg); } 100% { transform: translateY(0px) rotate(360deg); } }';
@@ -56,6 +56,9 @@ const AboutPage = () => {
         <Circle key={index} {...props} />
       ))}
       <Container maxWidth="md">
+        <Typography variant="h3" align="center"  sx={{pb: 6, pt: 0}} gutterBottom>
+          About Me
+        </Typography>
         <StyledPaper elevation={4}>
           <Typography variant="h2" gutterBottom>
             Wilco Milcinovic
@@ -85,8 +88,7 @@ const AboutPage = () => {
                 Data Analysis Skills
               </Typography>
               <Typography>
-                Skilled in data visualization, statistical analysis, and
-                machine learning using Python, R, and SQL.
+                Skilled in data visualization, statistical analysis using Python and SQL.
               </Typography>
             </Box>
           </Box>
@@ -98,6 +100,18 @@ const AboutPage = () => {
             </Typography>
           </Box>
         </StyledPaper>
+        {/* Button to Download Resume */}
+        <Box sx={{ mt: 4, textAlign: 'center' }}>
+          <Button
+            variant="outlined"
+            color="secondary"
+            href="/public/wilco_milcinovic_CV.pdf" // Ensure this path points to your resume file
+            target="_blank"
+            download
+          >
+            Download My Resume
+          </Button>
+        </Box>
       </Container>
     </Box>
   );

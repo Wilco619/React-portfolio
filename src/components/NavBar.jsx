@@ -11,11 +11,13 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { useTheme } from '@mui/material/styles';
 
-const pages = ['Home', 'Projects', 'Skills','Blog'];
+const pages = ['Home', 'Projects', 'Skills', 'Blog'];
 const settings = ['Profile', 'About'];
 
 function ResponsiveAppBar() {
+  const theme = useTheme();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -35,10 +37,9 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{bgcolor:'background.paper'}}>
+    <AppBar position="static" sx={{ bgcolor: theme.palette.background.paper }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          
           <Typography
             variant="h6"
             noWrap
@@ -50,11 +51,11 @@ function ResponsiveAppBar() {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'text.primary',
+              color: theme.palette.text.primary,
               textDecoration: 'none',
             }}
           >
-            LOGO
+            WMDev
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -64,7 +65,7 @@ function ResponsiveAppBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="text.primary"
+              color="inherit"
             >
               <MenuIcon />
             </IconButton>
@@ -82,16 +83,17 @@ function ResponsiveAppBar() {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' , color:'text.primary' }}>{page}</Typography>
+                  <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          
           <Typography
             variant="h5"
             noWrap
@@ -104,23 +106,24 @@ function ResponsiveAppBar() {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'text.primary',
+              color: theme.palette.text.primary,
               textDecoration: 'none',
             }}
           >
-            LOGO
+            WMDev
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block' }}
+                sx={{ my: 2, color: theme.palette.text.primary, display: 'block' }}
               >
                 {page}
               </Button>
             ))}
           </Box>
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -145,7 +148,7 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
+                  <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -155,4 +158,5 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
+
 export default ResponsiveAppBar;

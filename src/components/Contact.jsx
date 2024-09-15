@@ -84,7 +84,7 @@ const ContactPage = () => {
       }}
     >
       <ContactContainer maxWidth="md">
-        <Typography variant="h3" align="center" gutterBottom>
+        <Typography variant="h3" align="center"  sx={{pb: 6, pt: 0}} gutterBottom>
           Contact Me
         </Typography>
         <Grid container spacing={3}>
