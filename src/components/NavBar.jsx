@@ -12,14 +12,21 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useTheme } from '@mui/material/styles';
+import { Link } from 'react-scroll';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
 
-const pages = ['Home', 'Projects', 'Skills', 'Blog'];
+const pages = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
 const settings = ['Profile', 'About'];
 
 function ResponsiveAppBar() {
   const theme = useTheme();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 50, // Changed from 0 to 50 to delay the effect slightly
+  });
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -37,125 +44,163 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ bgcolor: theme.palette.background.paper }}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: theme.palette.text.primary,
-              textDecoration: 'none',
-            }}
-          >
-            WMDev
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+    <Box sx={{ position: 'fixed', width: '100%', zIndex: theme.zIndex.appBar }}>
+      <AppBar 
+        position="relative"
+        sx={{ 
+          bgcolor: 'transparent',
+          boxShadow: 'none',
+          transition: 'all 0.3s ease',
+        }}
+      >
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            bgcolor: theme.palette.background.paper,
+            opacity: trigger ? 0.91 : 0,
+            transition: 'opacity 0.3s ease',
+            backdropFilter: trigger ? 'blur(15px)' : 'none',
+          }}
+        />
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="#app-bar-with-responsive-menu"
               sx={{
-                display: { xs: 'block', md: 'none' },
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: theme.palette.text.primary,
+                textDecoration: 'none',
+                zIndex: 1,
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: theme.palette.text.primary,
-              textDecoration: 'none',
-            }}
-          >
-            WMDev
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: theme.palette.text.primary, display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+              WMDev
+            </Typography>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, zIndex: 1 }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
               </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: 'block', md: 'none' },
+                }}
+              >
+                {pages.map((page) => (
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Link
+                      to={page.toLowerCase()}
+                      smooth={true}
+                      duration={500}
+                      offset={-64} // Adjust this value based on your AppBar height
+                    >
+                      <Typography textAlign="center">{page}</Typography>
+                    </Link>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              href="#app-bar-with-responsive-menu"
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'none' },
+                flexGrow: 1,
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: theme.palette.text.primary,
+                textDecoration: 'none',
+                zIndex: 1,
               }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
+              WMDev
+            </Typography>
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, zIndex: 1 }}>
+              {pages.map((page) => (
+                <Link
+                  key={page}
+                  to={page.toLowerCase()}
+                  smooth={true}
+                  duration={500}
+                  offset={-64} // Adjust this value based on your AppBar height
+                >
+                  <Button
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: theme.palette.text.primary, display: 'block' }}
+                  >
+                    {page}
+                  </Button>
+                </Link>
               ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+            </Box>
+
+            <Box sx={{ flexGrow: 0, zIndex: 1 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/assets/passport-.png" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {settings.map((setting) => (
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">{setting}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </Box>
   );
 }
 

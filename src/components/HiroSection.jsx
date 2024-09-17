@@ -41,7 +41,7 @@ const HeroSection = () => {
     <Box
       sx={{
         bgcolor: 'background.paper',
-        pt: 0,
+        pt: 5,
         pb: 6,
       }}
     >
@@ -95,7 +95,7 @@ const HeroSection = () => {
             >
               {typedText}
             </Typography>
-            <Typography variant="h5" color="text.secondary" sx={{ mb: 2 }}>
+            <Typography variant="h5" color="text.secondary" sx={{ mb: 2 , textAlign: 'center'}}>
               Passionate about creating innovative solutions and analyzing complex data.
             </Typography>
           </Box>

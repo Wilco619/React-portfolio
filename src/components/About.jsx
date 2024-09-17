@@ -78,7 +78,7 @@ const AboutPage = () => {
               <Typography variant="h6" gutterBottom>
                 Web Development Expertise
               </Typography>
-              <Typography>
+              <Typography >
                 Proficient in React, Node.js, and Python. Experienced in
                 building scalable web applications and RESTful APIs.
               </Typography>
@@ -101,11 +101,11 @@ const AboutPage = () => {
           </Box>
         </StyledPaper>
         {/* Button to Download Resume */}
-        <Box sx={{ mt: 4, textAlign: 'center' }}>
+        <Box sx={{ mt: 12, textAlign: 'center' }}>
           <Button
             variant="outlined"
             color="secondary"
-            href="/public/wilco_milcinovic_CV.pdf" // Ensure this path points to your resume file
+            href="/wilco_milcinovic_CV.pdf" // Ensure this path points to your resume file
             target="_blank"
             download
           >

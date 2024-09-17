@@ -163,7 +163,7 @@ const ContactPage = () => {
                 />
                 <Button
                   type="submit"
-                  variant="contained"
+                  variant="outlined"
                   color="primary"
                   fullWidth
                   sx={{ mt: 2 }}
