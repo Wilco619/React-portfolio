@@ -120,7 +120,7 @@ const HeroSection = () => {
                 
               }}
               alt="Developer"
-              src="/src/assets/passport-.png"
+              src="assets/passport-.png"
             />
           </Box>
         </Box>
