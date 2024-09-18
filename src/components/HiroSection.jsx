@@ -120,7 +120,7 @@ const HeroSection = () => {
                 
               }}
               alt="Developer"
-              src="assets/passport-.png"
+              src={new URL('../assets/passport-.png', import.meta.url).href}
             />
           </Box>
         </Box>

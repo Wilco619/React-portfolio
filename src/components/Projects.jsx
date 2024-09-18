@@ -21,34 +21,40 @@ const Transition = React.forwardRef((props, ref) => (
   <Slide direction="up" ref={ref} {...props} />
 ));
 
+// Import images
+import hrManagementImage from '../assets/Screenshot1.png';
+import microfinanceImage from '../assets/Screenshot1.png';
+import libraryManagementImage from '../assets/Screenshot1.png';
+import portfolioImage from '../assets/Screenshot2-.png';
+
 const projects = [
   {
     title: 'HR Management System',
     description: 'A robust HR management platform using Django framework, MySQL database, and Bootstrap5 for the UI.',
     technologies: 'Django, MySQL, Bootstrap5',
     details: 'The HR Management System allows easy employee management, payroll processing, leave tracking, and report generation. It is highly scalable and secure, making it ideal for small to large businesses.',
-    imageUrl: 'assets/hr-management.jpg',
+    imageUrl: hrManagementImage,
   },
   {
     title: 'Microfinance System',
     description: 'A microfinance platform with a React frontend, axios for API integration, and a Django REST framework backend.',
     technologies: 'React, Axios, Django REST Framework, Material UI',
     details: 'The Microfinance System streamlines loan applications, approvals, customer management, and financial tracking. The system integrates Material UI for an elegant user experience and React for a fast and dynamic interface.',
-    imageUrl: 'assets/microfinance.jpg',
+    imageUrl: microfinanceImage,
   },
   {
     title: 'Library Management System',
     description: 'A Python-based library management platform using the Django framework.',
     technologies: 'Python, Django',
     details: 'The Library Management System automates book borrowing, returns, and catalog management. With a secure backend and a user-friendly interface, this system improves library workflows and ensures data accuracy.',
-    imageUrl: 'assets/Screenshot1.png',
+    imageUrl: libraryManagementImage,
   },
   {
     title: 'Portfolio Website',
     description: 'A personal portfolio showcasing projects, skills, and achievements using React.js and Material UI.',
     technologies: 'React.js, Material UI',
     details: 'This portfolio website was designed to demonstrate my web development skills, including proficiency in React.js and Material UI. It features smooth navigation, responsive design, and professional animations.',
-    imageUrl: 'assets/Screenshot2-.png',
+    imageUrl: portfolioImage,
   },
 ];
 
