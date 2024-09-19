@@ -88,7 +88,7 @@ const ProjectsPage = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        bgcolor: theme.palette.background.default,
+        background: 'linear-gradient(127deg, #00224D 30%, #21CBF3 90%)',
         py: 8,
       }}
     >
