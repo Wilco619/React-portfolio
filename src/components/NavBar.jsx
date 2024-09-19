@@ -14,18 +14,21 @@ import MenuItem from '@mui/material/MenuItem';
 import { useTheme } from '@mui/material/styles';
 import { Link } from 'react-scroll';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Switch from '@mui/material/Switch';
 
 const pages = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
 const settings = ['Profile', 'About'];
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar({ toggleDarkMode }) {
   const theme = useTheme();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 50, // Changed from 0 to 50 to delay the effect slightly
+    threshold: 50,
   });
 
   const handleOpenNavMenu = (event) => {
@@ -122,7 +125,7 @@ function ResponsiveAppBar() {
                       to={page.toLowerCase()}
                       smooth={true}
                       duration={500}
-                      offset={-64} // Adjust this value based on your AppBar height
+                      offset={-64}
                     >
                       <Typography textAlign="center">{page}</Typography>
                     </Link>
@@ -156,7 +159,7 @@ function ResponsiveAppBar() {
                   to={page.toLowerCase()}
                   smooth={true}
                   duration={500}
-                  offset={-64} // Adjust this value based on your AppBar height
+                  offset={-64}
                 >
                   <Button
                     onClick={handleCloseNavMenu}
@@ -195,6 +198,17 @@ function ResponsiveAppBar() {
                     <Typography textAlign="center">{setting}</Typography>
                   </MenuItem>
                 ))}
+                <MenuItem>
+                  <Typography component="div" sx={{ display: 'flex', alignItems: 'center' }}>
+                    {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                    <Switch
+                      checked={theme.palette.mode === 'dark'}
+                      onChange={toggleDarkMode}
+                      color="default"
+                    />
+                    {theme.palette.mode === 'dark' ? 'Dark' : 'Light'} Mode
+                  </Typography>
+                </MenuItem>
               </Menu>
             </Box>
           </Toolbar>

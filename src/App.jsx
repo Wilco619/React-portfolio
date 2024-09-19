@@ -1,19 +1,42 @@
-import './App.css'
-import AboutPage from './components/About'
-import ContactPage from './components/Contact'
-import Footer from './components/Footer'
-import HiroSection from './components/HiroSection'
-import ResponsiveAppBar from './components/NavBar'
-import ProjectsPage from './components/Projects'
-import SkillsPage from './components/Skills'
-import { ThemeProvider } from '@mui/material/styles';
-import theme from './Theme';
-import { Box } from '@mui/material';
+import React, { useState, useMemo } from 'react';
+import './App.css';
+import AboutPage from './components/About';
+import ContactPage from './components/Contact';
+import Footer from './components/Footer';
+import HiroSection from './components/HiroSection';
+import ResponsiveAppBar from './components/NavBar';
+import ProjectsPage from './components/Projects';
+import SkillsPage from './components/Skills';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { CssBaseline, Box } from '@mui/material';
+import ScrollToTopButton from './constants/ScrollToTopButton';
 
 function App() {
+  const [mode, setMode] = useState('light');
+
+  const colorMode = useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+      },
+    }),
+    [],
+  );
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+        },
+      }),
+    [mode],
+  );
+
   return (
     <ThemeProvider theme={theme}>
-      <ResponsiveAppBar />
+      <CssBaseline />
+      <ResponsiveAppBar toggleDarkMode={colorMode.toggleColorMode} />
       <Box component="main">
         <Box id="home">
           <HiroSection />
@@ -32,8 +55,9 @@ function App() {
         </Box>
       </Box>
       <Footer />
+      <ScrollToTopButton />
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -88,7 +88,7 @@ const SkillsPage = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(65deg, #00224D 30%, #A04747 90%)',
+        background: 'linear-gradient(65deg, #00224D 30%, #7A1CAC 90%)',
         position: 'relative',
         overflow: 'hidden',
         p: 2,
