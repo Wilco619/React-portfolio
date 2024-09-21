@@ -22,10 +22,11 @@ const Transition = React.forwardRef((props, ref) => (
 ));
 
 // Import images
-import hrManagementImage from '../assets/Screenshot1.png';
+import hrManagementImage from '../assets/Screenshot4.png';
 import microfinanceImage from '../assets/Screenshot1.png';
 import libraryManagementImage from '../assets/Screenshot1.png';
 import portfolioImage from '../assets/Screenshot2-.png';
+import churchImage from '../assets/Screenshot3.png';
 
 const projects = [
   {
@@ -48,6 +49,13 @@ const projects = [
     technologies: 'Python, Django',
     details: 'The Library Management System automates book borrowing, returns, and catalog management. With a secure backend and a user-friendly interface, this system improves library workflows and ensures data accuracy.',
     imageUrl: libraryManagementImage,
+  },
+  {
+    title: 'Church Website',
+    description: 'The Church Of Christ Website, using React.js and Material UI.',
+    technologies: 'React.js, Material UI',
+    details: 'This Church website is developed to help the church members notice events prior to the date, the church sermons are shared through this platform, church service is described to visitors and the church can be contacted via email and rerlevant links by new members seeking spiritual guidance. It has an admin site to help manage the website and embedded google map for direction.',
+    imageUrl: churchImage,
   },
   {
     title: 'Portfolio Website',

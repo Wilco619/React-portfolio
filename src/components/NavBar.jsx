@@ -97,7 +97,7 @@ function ResponsiveAppBar({ toggleDarkMode }) {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color="inherit"
+                color="#000"
               >
                 <MenuIcon />
               </IconButton>
@@ -116,7 +116,7 @@ function ResponsiveAppBar({ toggleDarkMode }) {
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
                 sx={{
-                  display: { xs: 'block', md: 'none' },
+                  display: { xs: 'block', md: 'none'},
                 }}
               >
                 {pages.map((page) => (
