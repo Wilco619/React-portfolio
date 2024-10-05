@@ -23,7 +23,7 @@ const Transition = React.forwardRef((props, ref) => (
 
 // Import images
 import hrManagementImage from '../assets/Screenshot4.png';
-import microfinanceImage from '../assets/Screenshot1.png';
+import microfinanceImage from '../assets/Screenshot5.png';
 import libraryManagementImage from '../assets/Screenshot1.png';
 import portfolioImage from '../assets/Screenshot2-.png';
 import churchImage from '../assets/Screenshot3.png';
