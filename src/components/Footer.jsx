@@ -66,7 +66,7 @@ const Footer = () => {
               </IconButton>
               <IconButton
                 component="a"
-                href="https://linkedin.com/in/wilco-milcinovic"
+                href="https://www.linkedin.com/in/wilco-milcinovic-aa5297213/"
                 target="_blank"
                 color="inherit"
               >
