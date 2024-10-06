@@ -105,7 +105,7 @@ const AboutPage = () => {
           <Button
             variant="outlined"
             color="secondary"
-            href="/wilco_milcinovic_CV.pdf" // Ensure this path points to your resume file
+            href={`${import.meta.env.BASE_URL}wilco_milcinovic_CV.pdf`}// Ensure this path points to your resume file
             target="_blank"
             download
           >
