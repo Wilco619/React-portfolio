@@ -114,7 +114,7 @@ const ContactPage = () => {
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                 <LinkedInIcon sx={{ mr: 1 }} />
                 <Typography variant="body1">
-                  <strong>LinkedIn:</strong> <Link href="https://linkedin.com/in/wilco-milcinovic" target="_blank" rel="noopener">linkedin.com/in/wilco-milcinovic</Link>
+                  <strong>LinkedIn:</strong> <Link href="https://www.linkedin.com/in/wilco-milcinovic-aa5297213/" target="_blank" rel="noopener">linkedin.com/in/wilco-milcinovic</Link>
                 </Typography>
               </Box>
             </InfoPaper>
