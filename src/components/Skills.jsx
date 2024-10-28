@@ -59,9 +59,9 @@ const skills = [
     description: 'Proficient in Debian Linux for server management and development.',
   },
   {
-    title: 'Material UI & Bootstrap 5',
+    title: 'Material UI, Bootstrap 5 & Tailwind CSS',
     icon: <LayersIcon color="info" sx={{ fontSize: 50 }} />,
-    description: 'Experienced in Material UI and Bootstrap 5 for modern, responsive designs.',
+    description: 'Experienced in Material UI, Tailwind Css and Bootstrap 5 for modern, responsive designs.',
   },
   {
     title: 'Django Framework',
