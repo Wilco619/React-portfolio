@@ -13,7 +13,8 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  Slide
+  Slide,
+  Link
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
@@ -35,6 +36,7 @@ const projects = [
     technologies: 'Django, MySQL, Bootstrap5',
     details: 'The HR Management System allows easy employee management, payroll processing, leave tracking, and report generation. It is highly scalable and secure, making it ideal for small to large businesses.',
     imageUrl: hrManagementImage,
+    repoLink: 'https://github.com/Wilco619/HR-Service-Application.git',
   },
   {
     title: 'Microfinance System',
@@ -42,6 +44,7 @@ const projects = [
     technologies: 'React, Axios, Django REST Framework, Material UI',
     details: 'The Microfinance System streamlines loan applications, approvals, customer management, and financial tracking. The system integrates Material UI for an elegant user experience and React for a fast and dynamic interface.',
     imageUrl: microfinanceImage,
+    repoLink: 'https://github.com/Wilco619/RestAPI_JWT_Authentication.git',
   },
   {
     title: 'Library Management System',
@@ -49,6 +52,7 @@ const projects = [
     technologies: 'Python, Django',
     details: 'The Library Management System automates book borrowing, returns, and catalog management. With a secure backend and a user-friendly interface, this system improves library workflows and ensures data accuracy.',
     imageUrl: libraryManagementImage,
+    repoLink: 'https://github.com/Wilco619/Library_management.git',
   },
   {
     title: 'Church Website',
@@ -56,6 +60,7 @@ const projects = [
     technologies: 'React.js, Material UI',
     details: 'This Church website is developed to help the church members notice events prior to the date, the church sermons are shared through this platform, church service is described to visitors and the church can be contacted via email and rerlevant links by new members seeking spiritual guidance. It has an admin site to help manage the website and embedded google map for direction.',
     imageUrl: churchImage,
+    repoLink: 'https://github.com/Wilco619/Church-Web.git',
   },
   {
     title: 'Portfolio Website',
@@ -63,6 +68,7 @@ const projects = [
     technologies: 'React.js, Material UI',
     details: 'This portfolio website was designed to demonstrate my web development skills, including proficiency in React.js and Material UI. It features smooth navigation, responsive design, and professional animations.',
     imageUrl: portfolioImage,
+    repoLink: 'https://github.com/Wilco619/React-portfolio.git',
   },
 ];
 
@@ -139,9 +145,19 @@ const ProjectsPage = () => {
                     {project.description}
                   </Typography>
                 </CardContent>
-                <CardActions>
+                <CardActions sx={{ display: 'flex', justifyContent: 'space-between', px: 2, pb: 2 }}>
                   <Button size="small" color="primary" onClick={() => handleOpen(project)}>
                     Learn More
+                  </Button>
+                  <Button 
+                    size="small" 
+                    color="primary" 
+                    href={project.repoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="contained"
+                  >
+                    View Code
                   </Button>
                 </CardActions>
               </Card>
@@ -162,6 +178,17 @@ const ProjectsPage = () => {
         <DialogContent dividers>
           <Typography gutterBottom>
             <strong>Technologies:</strong> {selectedProject?.technologies}
+          </Typography>
+          <Typography gutterBottom>
+            <strong>Repository:</strong>{' '}
+            <Link 
+              href={selectedProject?.repoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              color="primary"
+            >
+              GitHub Repository
+            </Link>
           </Typography>
           <Typography id="project-dialog-description">
             {selectedProject?.details}

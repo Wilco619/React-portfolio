@@ -117,10 +117,10 @@ const HeroSection = () => {
                 borderRadius: { xs: 0, md: 2 },
                 boxShadow: 0,
                 mt: { xs: 0, md: 'inherit' },
-                
+
               }}
               alt="Developer"
-              src={new URL('../assets/passport-.png', import.meta.url).href}
+              src={new URL('../assets/passport_.png', import.meta.url).href}
             />
           </Box>
         </Box>

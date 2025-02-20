@@ -18,6 +18,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 // Styled components
 const ContactContainer = styled(Container)(({ theme }) => ({
@@ -96,7 +97,7 @@ const ContactPage = () => {
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                 <PhoneIcon sx={{ mr: 1 }} />
                 <Typography variant="body1">
-                  <strong>Phone:</strong> +254 0718679186
+                  <strong>Phone:</strong> +254 718679186
                 </Typography>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
@@ -117,6 +118,12 @@ const ContactPage = () => {
                   <strong>LinkedIn:</strong> <Link href="https://www.linkedin.com/in/wilco-milcinovic-aa5297213/" target="_blank" rel="noopener">linkedin.com/in/wilco-milcinovic</Link>
                 </Typography>
               </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                <WhatsAppIcon sx={{ mr: 1 }} />
+                <Typography variant="body1">
+                    <strong>WhatsApp:</strong> <Link href="https://wa.me/254718679186" target="_blank" rel="noopener">+254 718 679 186</Link>
+                </Typography>
+            </Box>
             </InfoPaper>
           </Grid>
           <Grid item xs={12} md={6}>

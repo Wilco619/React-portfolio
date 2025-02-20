@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Container, Grid, Typography, Link, IconButton } from '@mui/material';
-import { GitHub, LinkedIn, Email, Phone } from '@mui/icons-material';
+import { GitHub, LinkedIn, Email, Phone, WhatsApp } from '@mui/icons-material';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -71,6 +71,15 @@ const Footer = () => {
                 color="inherit"
               >
                 <LinkedIn />
+              </IconButton>
+              <IconButton
+                component="a"
+                href="https://wa.me/254718679186"  // Changed this line to use your phone number
+                target="_blank"
+                color="inherit"
+                rel="noopener noreferrer"  // Added for security best practices
+              >
+                <WhatsApp />
               </IconButton>
             </Box>
           </Grid>
