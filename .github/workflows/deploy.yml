@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # This deploys on every push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Runs the action on an Ubuntu runner
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.x'  # Specify the Node.js version
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          npm install
+
+      # Build the app
+      - name: Build the app
+        run: |
+          npm run build
+
+      # Deploy to GitHub Pages using gh-pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_branch: gh-pages  # The branch where the built site will be deployed
+          folder: dist  # The folder containing the built site
+          token: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions for authentication
