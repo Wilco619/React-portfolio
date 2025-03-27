@@ -28,6 +28,7 @@ import microfinanceImage from '../assets/Screenshot5.png';
 import libraryManagementImage from '../assets/Screenshot1.png';
 import portfolioImage from '../assets/Screenshot2-.png';
 import churchImage from '../assets/Screenshot3.png';
+import ecommerceImage from '../assets/Screenshot6.png';
 
 const projects = [
   {
@@ -69,6 +70,15 @@ const projects = [
     details: 'This portfolio website was designed to demonstrate my web development skills, including proficiency in React.js and Material UI. It features smooth navigation, responsive design, and professional animations.',
     imageUrl: portfolioImage,
     repoLink: 'https://github.com/Wilco619/React-portfolio.git',
+  },
+  {
+    title: 'E-Commerce Website',
+    description: 'An e-commerce platform with a React frontend, Material UI for styling, and Django for backend services.',
+    technologies: 'React, Material UI, Django, REST API, MySQL, JWT, Axios, Skeleton',
+    details: 'The jemsa.co.ke E-Commerce Website is a full-stack platform that allows users to browse products, add items to the cart, and make secure payments. It integrates Django REST API for backend services, MySQL for database management, and React for a dynamic user interface.',
+    imageUrl: ecommerceImage,
+    webLink: 'https://jemsa.co.ke',
+    repoLink: 'https://github.com/Wilco619/E-Commerce',
   },
 ];
 
@@ -149,6 +159,18 @@ const ProjectsPage = () => {
                   <Button size="small" color="primary" onClick={() => handleOpen(project)}>
                     Learn More
                   </Button>
+                  {project.webLink && (
+                    <Button 
+                      size="small" 
+                      color="primary" 
+                      href={project.webLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="outlined"
+                    >
+                      Visit Site
+                    </Button>
+                  )}
                   <Button 
                     size="small" 
                     color="primary" 
